@@ -7,21 +7,21 @@ public class AboutMe {
         Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
 
         System.out.println("Digite seu nome:");
-        String nome = scanner.next();
+        String name = scanner.next();
 
         System.out.println("Digite seu sobrenome:");
-        String sobrenome = scanner.next();
+        String surname = scanner.next();
 
         System.out.println("Digite sua idade:");
-        int idade = scanner.nextInt();
+        int age = scanner.nextInt();
 
         System.out.println("Digite sua altura:");
-        double altura = scanner.nextDouble();
+        double height = scanner.nextDouble();
 
         scanner.close();
 
-        System.out.println("Olá, me chamo " + nome + " " + sobrenome);
-        System.out.println("Tenho " + idade + " anos");
-        System.out.println("Minha altura é " + altura + "cm");
+        System.out.println("Olá, me chamo " + name + " " + surname);
+        System.out.println("Tenho " + age + " anos");
+        System.out.println("Minha altura é " + height + "cm");
     }
 }
