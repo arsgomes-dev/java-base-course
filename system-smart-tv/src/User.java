@@ -1,4 +1,4 @@
-public class Usuario {
+public class User {
     public static void main(String[] args) throws Exception {
         SmartTv smartTv = new SmartTv();
         System.out.println("Estado da Tv: " + smartTv.ligada);
@@ -21,4 +21,5 @@ public class Usuario {
         smartTv.mudarCanal(11);
         System.out.println("Novo Canal da Tv: " + smartTv.canal);
     }
+
 }
