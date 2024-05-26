@@ -18,6 +18,9 @@ public class SchoolResult {
 
         // Usando operadores ternários
         // returnMessage = (note >= 7) ? "Aprovado" : "Reprovado";
+        // Usando operadores ternários encandeados
+        // returnMessage = (note >= 7) ? "Aprovado" : (note >= 5 && note < 7) ? "Prova
+        // de recuperação" : "Reprovado";
 
         // Mensagem exibindo o resultado final do aluno
         System.out.println("Resultado final: " + returnMessage);
