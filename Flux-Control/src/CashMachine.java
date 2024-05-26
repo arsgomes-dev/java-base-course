@@ -36,5 +36,8 @@ public class CashMachine {
         System.out.println(returnMessage);
         // mensagem exibindo o saldo da conta
         System.out.println("Seu saldo disponível é de R$" + balance);
+
+        // fecha o fluxo da classe scanner
+        scanner.close();
     }
 }
