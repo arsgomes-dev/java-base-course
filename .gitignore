@@ -26,5 +26,8 @@ replay_pid*
 Types-Variables/.vscode/settings.json
 System-Smart-TV/.gitignore
 System-Smart-TV/.vscode/settings.json
-.gitignore
 Flux-Control/.vscode/settings.json
+Flux-Control/.vscode/settings.json
+.gitignore
+.gitignore
+Bank-Account/.vscode/settings.json
