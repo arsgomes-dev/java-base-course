@@ -24,3 +24,4 @@ hs_err_pid*
 replay_pid*
  types_variables/.vscode/settings.json
 Types-Variables/.vscode/settings.json
+System-Smart-TV/.gitignore
