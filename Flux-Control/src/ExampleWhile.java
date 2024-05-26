@@ -3,6 +3,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ExampleWhile {
     public static void main(String[] args) {
         double savings = 50.00;
+        // O fluxo While já entra no fluxo testando se a condicional é verdadeira ou
+        // falsa
         while (savings > 0) {
             Double sweetValue = randomValue();
             if (sweetValue > savings) {
