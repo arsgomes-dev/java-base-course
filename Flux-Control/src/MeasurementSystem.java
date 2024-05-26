@@ -14,6 +14,10 @@ public class MeasurementSystem {
                 System.out.println("Grande");
                 break;
             }
+            case "GG": {
+                System.out.println("Extra Grande");
+                break;
+            }
             default:
                 System.out.println("Indefinido");
         }
