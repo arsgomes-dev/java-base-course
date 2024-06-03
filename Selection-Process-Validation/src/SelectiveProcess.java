@@ -3,20 +3,35 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class SelectiveProcess {
     public static void main(String[] args) throws Exception {
-        String[] candidate = { "FELIPE", "MÁRCIA", "JULIA", "PAULO", "AUGUSTO", "MÔNICA", "FABRÍCIO", "MIRELA",
+        String[] candidates = { "FELIPE", "MÁRCIA", "JULIA", "PAULO", "AUGUSTO", "MÔNICA", "FABRÍCIO", "MIRELA",
                 "DANIELA", "JORGE" };
+        String[] candidateApproved = new String[5];
         int approved = 0;
-        for (int i = 0; i < candidate.length; i++) {
+
+        System.out.println("Candidatos selecionados: ");
+        for (int i = 0; i < candidates.length; i++) {
             double targetValue = randomTargetValue();
-            boolean generalReturn = analyzeCandidate(candidate[i], targetValue);
+            boolean generalReturn = analyzeCandidate(candidates[i], targetValue);
             if (generalReturn == true && approved <= 5) {
+                candidateApproved[approved] = candidates[i];
                 approved++;
-                System.out.println(approved);
                 if (approved == 5) {
                     break;
                 }
             }
 
+        }
+        /*
+         * for (int x = 0; x < candidateApproved.length; x++) {
+         * if (candidateApproved[x] != null) {
+         * System.out.println(candidateApproved[x]);
+         * }
+         * }
+         */
+        System.out.println("Ligações realizadas pelo RH: ");
+        for (String candidate : candidateApproved) {
+            if (candidate != null)
+                makeCall(candidate);
         }
     }
 
@@ -25,19 +40,21 @@ public class SelectiveProcess {
         String message;
         boolean generalReturn = false;
         if (baseSalary >= intendedSalary) {
-            message = "LIGAR PARA O CANDIDATO";
+            message = "O candidato " + sequenceCandidate + " foi selecionado(a), ligar para o(a) candidato(a). ";
+            System.out.println(message);
             generalReturn = true;
 
         } else if (baseSalary == intendedSalary) {
-            message = " LIGAR PARA O CANDIDATO, COM CONTRA PROPOSTA";
+            message = "O candidato " + sequenceCandidate
+                    + " foi selecionado, ligar para o(a) candidato(a), com contra proposta da pretensão salarial.";
+            System.out.println(message);
             generalReturn = true;
 
         } else {
-            message = "AGUARDANDO RESULTADO DOS DEMAIS CANDIDATOS";
+            // message = "AGUARDANDO RESULTADO DOS DEMAIS CANDIDATOS"; */
             generalReturn = false;
 
         }
-        System.out.println(message);
         return generalReturn;
     }
 
@@ -45,10 +62,28 @@ public class SelectiveProcess {
         return ThreadLocalRandom.current().nextDouble(1800, 2200);
     }
 
+    static void makeCall(String candidate) {
+        int attemptsMade = 1;
+        boolean continueAttempts = true;
+        boolean answered = false;
+        do {
+            answered = touching();
+            continueAttempts = !answered;
+            if (continueAttempts)
+                attemptsMade++;
+            else
+                System.out.println("Contato realizado com sucesso!");
+        } while (continueAttempts && attemptsMade < 3);
+
+        if (answered)
+            System.out.println("Conseguimos contato com " + candidate + " na " + attemptsMade + " tentativa.");
+        else
+            System.out.println("Não conseguimos contato com " + candidate
+                    + ", foram realizadas " + attemptsMade + " tentativas, que é o número máximo permitido.");
+
+    }
+
     private static boolean touching() {
-        boolean answered = new Random().nextInt(3) == 1;
-        System.out.println("Atendeu? " + answered);
-        // negando o ato de continuar tocando
-        return !answered;
+        return new Random().nextInt(3) == 1;
     }
 }
