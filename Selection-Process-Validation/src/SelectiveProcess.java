@@ -21,6 +21,8 @@ public class SelectiveProcess {
             }
 
         }
+        System.out.println("______________________________");
+        System.out.println(" ");
         /*
          * for (int x = 0; x < candidateApproved.length; x++) {
          * if (candidateApproved[x] != null) {
