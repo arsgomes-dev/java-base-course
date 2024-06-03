@@ -6,7 +6,9 @@ public class Counter {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
-        System.out.println("É necessário que o segundo número seja maior que o primeiro!");
+        System.out.println(
+                "Vamos imprimir os números entre dois valores digitados, é necessário que o segundo número seja maior que o primeiro!");
+        System.out.println("Vamos começar?");
 
         System.out.println("Digite o primeiro número:");
         int numberOne = scanner.nextInt();
